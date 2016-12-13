@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity
         implements
         SearchView.OnQueryTextListener,
         RecyclerViewAdapter.OnClickListener {
+    
 
     private RecyclerViewAdapter adapter;
     JsonController controller;

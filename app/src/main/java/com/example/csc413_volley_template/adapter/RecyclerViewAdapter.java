@@ -1,5 +1,7 @@
 package com.example.csc413_volley_template.adapter;
 
+import android.content.Intent;
+import android.location.Geocoder;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,9 +17,10 @@ import com.example.csc413_volley_template.R;
 import com.example.csc413_volley_template.volley.VolleySingleton;
 
 import java.util.List;
+import java.util.Locale;
 
 /*
- * Created by abhijit on 11/20/16.
+ * Created by ahmed on 12/11/16.
  */
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -28,6 +31,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public RecyclerViewAdapter(List<Movie> movieList) {
         this.movieList = movieList;
     }
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -42,7 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         CardViewHolder cardViewHolder = (CardViewHolder) holder;
         cardViewHolder.setTitle(movie.getTitle());
-        cardViewHolder.setYear(movie.getYear());
+        cardViewHolder.setPopularity(movie.getPopularity());
         cardViewHolder.setPosterUrl(movie.getPosterUrl());
         if(listener!=null) {
             cardViewHolder.bindClickListener(listener, movie);
@@ -81,7 +85,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         private CardView cardView;
         private TextView title;
-        private TextView year;
+        private TextView popularity;
+        private TextView overView;
         private NetworkImageView poster;
 
         /**
@@ -92,7 +97,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             super(view);
             this.cardView = (CardView) view.findViewById(R.id.card_view);
             this.title = (TextView) view.findViewById(R.id.tvTitle);
-            this.year = (TextView) view.findViewById(R.id.tvYear);
+//            this.year = (TextView) view.findViewById(R.id.tvYear);
+            this.popularity = (TextView) view.findViewById(R.id.tvPopularity);
+            this.overView = (TextView) view.findViewById(R.id.tvOverview);
             this.poster = (NetworkImageView) view.findViewById(R.id.nivPoster);
         }
 
@@ -106,12 +113,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
 
         /**
-         * append year text to Release Year:
-         * @param year String of year of release
+         * append year text to popularity score:
+         * @param popularity String of popularity of release
          */
-        void setYear(String year) {
-            String y = "Release Year:\n" + year;
-            this.year.setText(y);
+        void setPopularity(String popularity) {
+            String y = "Popularity score:\n" + popularity;
+            this.popularity.setText(y);
         }
 
         /**
@@ -123,6 +130,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         void setPosterUrl(String imageUrl) {
             ImageLoader imageLoader = VolleySingleton.getInstance(App.getContext()).getImageLoader();
             this.poster.setImageUrl(imageUrl, imageLoader);
+        }
+
+        void setOverView(String overView){
+            String a = "Overview:\n" + overView;
+            this.overView.setText(a);
         }
 
         /**

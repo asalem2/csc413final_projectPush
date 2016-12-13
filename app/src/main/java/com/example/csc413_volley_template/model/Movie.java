@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Created by abhijit on 12/1/16.
+ * Created by Ahmed on 12/11/16.
  */
 
 
@@ -18,9 +18,10 @@ import java.util.List;
 public class Movie {
 
     private String title;
-    private String year;
-    private String imdbId;
-    private String type;
+    private String popularity;
+//    private String imdbId;
+    private String id;
+    private String overview;
     private String posterUrl;
 
     /**
@@ -32,9 +33,9 @@ public class Movie {
     public static List<Movie> parseJson(JSONObject jsonObject) throws JSONException{
         List<Movie> movies = new ArrayList<>();
         // Check if the JSONObject has object with key "Search"
-        if(jsonObject.has("Search")){
+        if(jsonObject.has("results")){
             // Get JSONArray from JSONObject
-            JSONArray jsonArray = jsonObject.getJSONArray("Search");
+            JSONArray jsonArray = jsonObject.getJSONArray("results");
             for(int i = 0; i < jsonArray.length(); i++){
                 // Create new Movie object from each JSONObject in the JSONArray
                 movies.add(new Movie(jsonArray.getJSONObject(i)));
@@ -60,12 +61,15 @@ public class Movie {
      * @throws JSONException     when parser fails to parse the given JSON
      */
     private Movie(JSONObject jsonObject) throws JSONException {
-        if(jsonObject.has("Title")) this.setTitle(jsonObject.getString("Title"));
-        if(jsonObject.has("Year")) this.setYear(jsonObject.getString("Year"));
-        if(jsonObject.has("imdbID")) this.setImdbId(jsonObject.getString("imdbID"));
-        if(jsonObject.has("Type")) this.setType(jsonObject.getString("Type"));
-        if(jsonObject.has("Poster")) this.setPosterUrl(jsonObject.getString("Poster"));
+        if(jsonObject.has("title")) this.setTitle(jsonObject.getString("title"));
+        if(jsonObject.has("popularity")) this.setPopularity(jsonObject.getString("popularity"));
+        if(jsonObject.has("id")) this.setid(jsonObject.getString("id"));
+        if(jsonObject.has("overview")) this.setOverview(jsonObject.getString("overview"));
+//        if(jsonObject.has("poster_path")) this.setPosterUrl(jsonObject.getString("https://api.themoviedb.org/3/movie/" +  jsonObject.getString("poster_path") + "/images?api_key=430771852c3226d571db1e30d4d19a61&language=en-US"));
+        if(jsonObject.has("poster_path")) this.setPosterUrl("https://image.tmdb.org/t/p/w600_and_h900_bestv2"+ jsonObject.getString("poster_path"));
     }
+
+
 
     public String getTitle() {
         return title;
@@ -75,28 +79,36 @@ public class Movie {
         this.title = title;
     }
 
-    public String getYear() {
+  /*  public String setYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void getYear() {
         this.year = year;
+    }*/
+
+    public void setPopularity(String popularity) {
+        this.popularity = popularity;
     }
 
-    public String getImdbId() {
-        return imdbId;
+    public String getPopularity() {
+        return popularity;
     }
 
-    public void setImdbId(String imdbId) {
-        this.imdbId = imdbId;
+    public String getid() {
+        return id;
     }
 
-    public String getType() {
-        return type;
+    public void setid(String id) {
+        this.id = id;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String type) {
+        this.overview = overview;
     }
 
     public String getPosterUrl() {

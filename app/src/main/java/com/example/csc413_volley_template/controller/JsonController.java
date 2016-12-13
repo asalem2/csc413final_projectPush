@@ -13,7 +13,7 @@ import com.example.csc413_volley_template.volley.VolleySingleton;
 import java.util.List;
 
 /*
- * Created by abhijit on 12/2/16.
+ * Created by ahmed on 12/11/16.
  */
 
 /**
@@ -43,7 +43,11 @@ public class JsonController {
         int method = Request.Method.GET;
 
         // Url with GET parameters
-        String url = "http://www.omdbapi.com/?s=" + Uri.encode(query) + "&t=movie";
+//        String url = "http://www.omdbapi.com/?s=" + Uri.encode(query) + "&t=movie";
+
+        String url = "https://api.themoviedb.org/3/search/movie?api_key=430771852c3226d571db1e30d4d19a61&language=en-" +
+                "US&page=1&include_adult=false&query=" + Uri.encode(query) + "&page=1&include_adult=false";
+
 
         // Create new request using JsonRequest
         JsonRequest request
