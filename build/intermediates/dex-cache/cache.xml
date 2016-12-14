@@ -102,6 +102,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="435a97b8fe906a305176ab0a76e324734e76f711">
+        <dex dex="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.getbase-floatingactionbutton-1.3.0_29a76545eb582cf3441a1656da345ffd4422efe8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
@@ -124,7 +133,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="5632a0d9b7ac7dfa7e1d2025bbf8329e6a9daed1">
+        sha1="0adae6eb1ee6036b0b4f3347d38022159f7b6a18">
         <dex dex="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b5b5fc9308181f9f290b400bda20ae537f495679/classes.dex" />
     </item>
     <item
@@ -196,7 +205,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="7468012febbdecadb44109d0db221c883cf39c7e">
+        sha1="3875e7d1fc7855e390853c4dacb62bdbac7d094a">
         <dex dex="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_564ab60b8b95c45457a6e5957462fcc9287b254a/classes.dex" />
     </item>
 

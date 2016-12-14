@@ -12,10 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.design.widget.FloatingActionButton;
+
 
 import com.example.csc413_volley_template.adapter.RecyclerViewAdapter;
 import com.example.csc413_volley_template.controller.JsonController;
 import com.example.csc413_volley_template.model.Movie;
+//import com.example.csc413_volley_template.Maps.GPSTracker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +27,10 @@ public class MainActivity extends AppCompatActivity
         implements
         SearchView.OnQueryTextListener,
         RecyclerViewAdapter.OnClickListener {
-    
+
+    /*GPSTracker gps = new GPSTracker (this);
+    double latitude = gps.getLatitude();
+    double longitude= gps.getLongitude();*/
 
     private RecyclerViewAdapter adapter;
     JsonController controller;
@@ -41,6 +47,14 @@ public class MainActivity extends AppCompatActivity
 
         textView = (TextView) findViewById(R.id.tvEmptyRecyclerView);
         textView.setText("Search for movies using SearchView in toolbar");
+
+        FloatingActionButton FAB = (FloatingActionButton) findViewById(R.id.fab);
+        FAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Would you like a coffee?", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());

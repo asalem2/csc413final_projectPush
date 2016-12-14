@@ -1,3 +1,4 @@
 <resources>
+    <string name="show_subtitle">Sup!</string>
     <string name="app_name">CSC-413 Assignment 2 Template</string>
 </resources>

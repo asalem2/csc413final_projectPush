@@ -24,20 +24,12 @@
         "source": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/anim/design_snackbar_out.xml"
     },
     {
-        "merged": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
-        "source": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/anim/design_bottom_sheet_slide_out.xml"
-    },
-    {
         "merged": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
         "source": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/anim/design_fab_out.xml"
     },
     {
         "merged": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
         "source": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/anim/abc_popup_enter.xml"
-    },
-    {
-        "merged": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_in.xml",
-        "source": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/anim/design_bottom_sheet_slide_in.xml"
     },
     {
         "merged": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",

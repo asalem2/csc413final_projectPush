@@ -47,6 +47,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         CardViewHolder cardViewHolder = (CardViewHolder) holder;
         cardViewHolder.setTitle(movie.getTitle());
         cardViewHolder.setPopularity(movie.getPopularity());
+        cardViewHolder.setOverView(movie.getOverview());
         cardViewHolder.setPosterUrl(movie.getPosterUrl());
         if(listener!=null) {
             cardViewHolder.bindClickListener(listener, movie);
@@ -86,7 +87,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         private CardView cardView;
         private TextView title;
         private TextView popularity;
-        private TextView overView;
+        private TextView overview;
         private NetworkImageView poster;
 
         /**
@@ -99,7 +100,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             this.title = (TextView) view.findViewById(R.id.tvTitle);
 //            this.year = (TextView) view.findViewById(R.id.tvYear);
             this.popularity = (TextView) view.findViewById(R.id.tvPopularity);
-            this.overView = (TextView) view.findViewById(R.id.tvOverview);
+            this.overview = (TextView) view.findViewById(R.id.tvOverview);
             this.poster = (NetworkImageView) view.findViewById(R.id.nivPoster);
         }
 
@@ -132,9 +133,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             this.poster.setImageUrl(imageUrl, imageLoader);
         }
 
-        void setOverView(String overView){
-            String a = "Overview:\n" + overView;
-            this.overView.setText(a);
+        void setOverView(String overview){
+
+            String a = "Overview:\n" + overview;
+            this.overview.setText(a);
         }
 
         /**
@@ -146,6 +148,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+//                    view.getContext().startActivity(new Intent(view.getContext(), cardClick.class));
+                    /*title.setText();
+                    popularity;
+                    overView;*/
                     listener.onCardClick(movie);
                 }
             });

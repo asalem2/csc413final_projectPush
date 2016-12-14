@@ -2,5 +2,9 @@
     {
         "merged": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/res/merged/debug/menu/menu_activity_main.xml",
         "source": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/src/main/res/menu/menu_activity_main.xml"
+    },
+    {
+        "merged": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/res/merged/debug/menu/fragment_movie_listp2.xml",
+        "source": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/src/main/res/menu/fragment_movie_listp2.xml"
     }
 ]
