@@ -1,58 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="armeabi-v7a,armeabi"
-    api-level="22"
-    density="hdpi"
+    abi="x86"
+    api-level="23"
+    density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="44755729861643"
+    timestamp="18107704306235"
     token="8900605894075629908"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="753" />
+        duration="1359" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="128" />
     <task
         name="instant-run-transform"
-        duration="48" />
+        duration="242" />
     <task
         name="verifier"
-        duration="2" />
+        duration="35" />
 
     <artifact
-        location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
-        type="DEX" />
+        location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="43248018980240"
+        timestamp="16888968608979"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="44185527916333"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="18107704306235"
+        verifier="COMPATIBLE" >
         <artifact
-            location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
-            type="RESOURCES" />
-    </build>
-    <build
-        timestamp="44616710653674"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="44755729861643"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
-            type="DEX" />
+            location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

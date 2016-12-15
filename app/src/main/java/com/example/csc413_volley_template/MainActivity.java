@@ -1,5 +1,6 @@
 package com.example.csc413_volley_template;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity
 
     private RecyclerViewAdapter adapter;
     JsonController controller;
+    public static final String movieExtra = "ahmed";
 
     TextView textView;
     RecyclerView recyclerView;
@@ -147,9 +149,14 @@ public class MainActivity extends AppCompatActivity
      * Interface Implementation
      * <p>This method will be invoked when user press anywhere on cardview</p>
      */
+
     @Override
     public void onCardClick(Movie movie) {
+
         Toast.makeText(this, movie.getTitle() + " clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getBaseContext(), Fullscreen.class);
+        intent.putExtra(movieExtra, movie.getid());
+        startActivity(intent);
     }
 
     /**

@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -15,6 +16,9 @@ import com.example.csc413_volley_template.app.App;
 import com.example.csc413_volley_template.model.Movie;
 import com.example.csc413_volley_template.R;
 import com.example.csc413_volley_template.volley.VolleySingleton;
+
+//import com.example.csc413_volley_template.MapsActivity.MapsActivity;
+
 
 import java.util.List;
 import java.util.Locale;
@@ -38,6 +42,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.movie_card_layout, parent, false);
         return new CardViewHolder(v);
+
+       /* Button mapBtn = (Button) v.findViewById(R.id.MapButton);
+        mapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MapsActivity.class));
+            }
+        });*/
     }
 
     @Override
@@ -47,7 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         CardViewHolder cardViewHolder = (CardViewHolder) holder;
         cardViewHolder.setTitle(movie.getTitle());
         cardViewHolder.setPopularity(movie.getPopularity());
-        cardViewHolder.setOverView(movie.getOverview());
+        cardViewHolder.setOverView(movie.getOverview().substring(1, 20) + "..");
         cardViewHolder.setPosterUrl(movie.getPosterUrl());
         if(listener!=null) {
             cardViewHolder.bindClickListener(listener, movie);
@@ -82,7 +94,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     /**
      *  CardViewHolder will hold the layout of the each item in the RecyclerView.
      */
-    private class CardViewHolder extends RecyclerView.ViewHolder {
+    public class CardViewHolder extends RecyclerView.ViewHolder {
 
         private CardView cardView;
         private TextView title;

@@ -23,6 +23,22 @@ public class Movie {
     private String id;
     private String overview;
     private String posterUrl;
+    private static Movie movie;
+    public static final List<Movie> movies = new ArrayList<>();
+    public static Movie get(){
+        if(movie == null){
+            movie= new Movie();
+        }
+        return movie;
+    }
+    public Movie getMovie(String id){
+        for (Movie movie : movies){
+            if(movie.getid().equals(id)){
+                return movie;
+            }
+        }
+        return null;
+    }
 
     /**
      *
@@ -31,7 +47,6 @@ public class Movie {
      * @throws JSONException
      */
     public static List<Movie> parseJson(JSONObject jsonObject) throws JSONException{
-        List<Movie> movies = new ArrayList<>();
         // Check if the JSONObject has object with key "Search"
         if(jsonObject.has("results")){
             // Get JSONArray from JSONObject
@@ -60,7 +75,7 @@ public class Movie {
      * @param jsonObject    {@link JSONObject} from each item in the search result
      * @throws JSONException     when parser fails to parse the given JSON
      */
-    private Movie(JSONObject jsonObject) throws JSONException {
+    public Movie(JSONObject jsonObject) throws JSONException {
         if(jsonObject.has("title")) this.setTitle(jsonObject.getString("title"));
         if(jsonObject.has("popularity")) this.setPopularity(jsonObject.getString("popularity"));
         if(jsonObject.has("id")) this.setid(jsonObject.getString("id"));
@@ -69,6 +84,7 @@ public class Movie {
         if(jsonObject.has("poster_path")) this.setPosterUrl("https://image.tmdb.org/t/p/w600_and_h900_bestv2"+ jsonObject.getString("poster_path"));
     }
 
+    private Movie() {}
 
 
     public String getTitle() {
