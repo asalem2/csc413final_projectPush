@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/src/debug/jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/src/debug/jniLibs"/></dataSet></merger>

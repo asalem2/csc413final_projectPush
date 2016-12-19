@@ -60,7 +60,7 @@
                 android:layout_alignStart="@+id/tvTitle"
                 android:layout_marginBottom="45dp" />
 
-            <Button
+            <!--<Button
                 android:layout_width="@dimen/abc_action_button_min_height_material"
                 android:layout_height="48dp"
                 android:id="@+id/MapButton"
@@ -68,7 +68,7 @@
                 android:longClickable="false"
                 android:layout_gravity="right"
                 android:layout_alignParentEnd="true"
-                />
+                />-->
 
             <!--<ListView
                 android:id="@+id/foundRecipesList"

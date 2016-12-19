@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.location.Geocoder;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,10 @@ import android.widget.TextView;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.example.csc413_volley_template.app.App;
+import com.example.csc413_volley_template.controller.VideoJsonController;
 import com.example.csc413_volley_template.model.Movie;
 import com.example.csc413_volley_template.R;
+import com.example.csc413_volley_template.model.VideoId;
 import com.example.csc413_volley_template.volley.VolleySingleton;
 
 //import com.example.csc413_volley_template.MapsActivity.MapsActivity;
@@ -31,6 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private List<Movie> movieList;
     private OnClickListener listener;
+    VideoJsonController controller;
 
     public RecyclerViewAdapter(List<Movie> movieList) {
         this.movieList = movieList;
@@ -54,13 +58,40 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Movie movie = movieList.get(position);
+        final Movie movie = movieList.get(position);
 
         CardViewHolder cardViewHolder = (CardViewHolder) holder;
         cardViewHolder.setTitle(movie.getTitle());
         cardViewHolder.setPopularity(movie.getPopularity());
-        cardViewHolder.setOverView(movie.getOverview().substring(1, 20) + "..");
+
+
+        if (movie.getOverview().length() > 21)
+            cardViewHolder.setOverView(movie.getOverview().substring(1, 20) + "..");
+
         cardViewHolder.setPosterUrl(movie.getPosterUrl());
+
+        controller = new VideoJsonController(
+                new VideoJsonController.OnResponseListener() {
+                    @Override
+                    public void onSuccess(List<VideoId> videoIds) {
+                        if(videoIds.size() > 0) {
+                            String s = "";
+                            if (videoIds.get(0).getid() != null)
+                                s += videoIds.get(0).getid();
+
+                            movie.setVideoId(s);
+                            Log.i("videoid",s);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(String errorMessage) {
+
+                    }
+                });
+
+                controller.sendRequest(movie.getid());
+
         if(listener!=null) {
             cardViewHolder.bindClickListener(listener, movie);
         }

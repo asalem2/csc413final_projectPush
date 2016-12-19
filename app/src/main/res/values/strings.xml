@@ -3,5 +3,7 @@
     <string name="app_name">CSC-413 Assignment 2 Template</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_fullscreen">Fullscreen</string>
+    <string name="error_player">Error player</string>
+    <string name="playerview_text">Playerview text</string>
 
 </resources>

@@ -1,44 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86"
-    api-level="23"
-    density="xxhdpi"
+    abi="armeabi-v7a,armeabi"
+    api-level="22"
+    density="hdpi"
     format="8"
-    plugin-version="2.2.2"
-    timestamp="18107704306235"
-    token="8900605894075629908"
-    verifier="COMPATIBLE" >
+    plugin-version="2.2.3"
+    timestamp="54423601771467"
+    token="-2678614230469647376"
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1359" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="128" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="242" />
+        duration="0" />
     <task
         name="verifier"
-        duration="35" />
-
-    <artifact
-        location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/reload-dex/debug/classes.dex"
-        type="RELOAD_DEX" />
+        duration="0" />
 
     <build
-        timestamp="16888968608979"
+        timestamp="53587046294637"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/outputs/apk/app-debug.apk"
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="18107704306235"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/reload-dex/debug/classes.dex"
-            type="RELOAD_DEX" />
-    </build>
+        timestamp="54423601771467"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

@@ -3,9 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:background="@drawable/loader"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Splash.SplashActivity">
+
+    android:background="@drawable/san_francisco_state_logo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".Splash.SplashActivity"
+    android:layout_gravity="center_vertical"
+    android:foregroundTint="@android:color/black"
+    android:foregroundTintMode="screen">
 
 </FrameLayout>

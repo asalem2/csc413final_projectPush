@@ -1,5 +1,13 @@
 package com.example.csc413_volley_template.model;
 
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.csc413_volley_template.MainActivity;
+import com.example.csc413_volley_template.controller.JsonController;
+import com.example.csc413_volley_template.controller.VideoJsonController;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,18 +27,23 @@ public class Movie {
 
     private String title;
     private String popularity;
-//    private String imdbId;
     private String id;
     private String overview;
     private String posterUrl;
+
+    private String videoId;
+
     private static Movie movie;
-    public static final List<Movie> movies = new ArrayList<>();
+    private static final List<Movie> movies = new ArrayList<>();
+    VideoJsonController controller;
+
     public static Movie get(){
         if(movie == null){
             movie= new Movie();
         }
         return movie;
     }
+
     public Movie getMovie(String id){
         for (Movie movie : movies){
             if(movie.getid().equals(id)){
@@ -47,13 +60,15 @@ public class Movie {
      * @throws JSONException
      */
     public static List<Movie> parseJson(JSONObject jsonObject) throws JSONException{
+        movies.clear();
         // Check if the JSONObject has object with key "Search"
         if(jsonObject.has("results")){
             // Get JSONArray from JSONObject
             JSONArray jsonArray = jsonObject.getJSONArray("results");
             for(int i = 0; i < jsonArray.length(); i++){
                 // Create new Movie object from each JSONObject in the JSONArray
-                movies.add(new Movie(jsonArray.getJSONObject(i)));
+                if (!jsonArray.getJSONObject(0).isNull("poster_path"))
+                    movies.add(new Movie(jsonArray.getJSONObject(i)));
             }
         }
 
@@ -82,6 +97,9 @@ public class Movie {
         if(jsonObject.has("overview")) this.setOverview(jsonObject.getString("overview"));
 //        if(jsonObject.has("poster_path")) this.setPosterUrl(jsonObject.getString("https://api.themoviedb.org/3/movie/" +  jsonObject.getString("poster_path") + "/images?api_key=430771852c3226d571db1e30d4d19a61&language=en-US"));
         if(jsonObject.has("poster_path")) this.setPosterUrl("https://image.tmdb.org/t/p/w600_and_h900_bestv2"+ jsonObject.getString("poster_path"));
+
+
+
     }
 
     private Movie() {}
@@ -133,5 +151,14 @@ public class Movie {
 
     public void setPosterUrl(String posterUrl) {
         this.posterUrl = posterUrl;
+    }
+
+
+    public String getVideoId() {
+        return videoId;
+    }
+
+    public void setVideoId(String videoId) {
+        this.videoId = videoId;
     }
 }

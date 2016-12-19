@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "outputFile": "/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "/Users/NoLimitProduction/csc413_finalproject_submission/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.5/res/values/values.xml",
+                    "file": "/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.5/res/values/values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

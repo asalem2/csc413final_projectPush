@@ -51,8 +51,10 @@ public class JsonRequest extends Request<List<Movie>> {
         try {
             // Convert JsonString to JSONObject
             jsonObject = new JSONObject(jsonString);
+            Log.i("moviesfirst",jsonString);
             // Get list of movies from received JSON
             movies = Movie.parseJson(jsonObject);
+//            Log.i("moviesfirst",movies.get(0).getTitle());
         }
         // in case of exception, return volley error
         catch (JSONException e) {

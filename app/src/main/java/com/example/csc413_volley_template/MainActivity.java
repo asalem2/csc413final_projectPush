@@ -1,6 +1,8 @@
 package com.example.csc413_volley_template;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -8,17 +10,26 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.design.widget.FloatingActionButton;
 
 
+//import com.example.csc413_volley_template.MapsActivity.MapsActivity;
 import com.example.csc413_volley_template.adapter.RecyclerViewAdapter;
 import com.example.csc413_volley_template.controller.JsonController;
 import com.example.csc413_volley_template.model.Movie;
+import com.example.csc413_volley_template.youtube.PlayerViewDemoActivity;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 //import com.example.csc413_volley_template.Maps.GPSTracker;
 
 import java.util.ArrayList;
@@ -27,7 +38,52 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements
         SearchView.OnQueryTextListener,
-        RecyclerViewAdapter.OnClickListener {
+        RecyclerViewAdapter.OnClickListener,
+        GoogleApiClient.OnConnectionFailedListener,
+        GoogleApiClient.ConnectionCallbacks{
+
+    FloatingActionButton FAB;
+    Location mLastLocation;
+    GoogleApiClient mGoogleApiClient;
+
+
+    public void onConnected(Bundle connectionHint) {
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+        if (mLastLocation != null) {
+            FAB.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    String lat = String.valueOf(mLastLocation.getLatitude());
+                    String lon = String.valueOf(mLastLocation.getLongitude());
+                    Toast.makeText(MainActivity.this, lat + " " + lon, Toast.LENGTH_SHORT).show();
+
+                }
+            });
+    //        mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
+    //        mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
+        }
+    }
+
+
+
+    @Override
+    public void onConnectionSuspended(int oCSuspended){
+
+    }
+    @Override
+    public void onConnectionFailed(ConnectionResult cResults){
+
+    }
+    protected void onStart() {
+        mGoogleApiClient.connect();
+        super.onStart();
+    }
+
+    protected void onStop() {
+        mGoogleApiClient.disconnect();
+        super.onStop();
+    }
 
     /*GPSTracker gps = new GPSTracker (this);
     double latitude = gps.getLatitude();
@@ -41,8 +97,10 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recyclerView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+//    protected void onCreateView(Bundle savedInstanceState, LayoutInflater inflater, ViewGroup container) {
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,13 +108,28 @@ public class MainActivity extends AppCompatActivity
         textView = (TextView) findViewById(R.id.tvEmptyRecyclerView);
         textView.setText("Search for movies using SearchView in toolbar");
 
-        FloatingActionButton FAB = (FloatingActionButton) findViewById(R.id.fab);
-        FAB.setOnClickListener(new View.OnClickListener() {
+        // Create an instance of GoogleAPIClient.
+        if (mGoogleApiClient == null) {
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .addApi(LocationServices.API)
+                    .build();
+        }
+
+//        final View rootView = inflater.inflate(R.layout.fragment_movie, container, false);
+
+
+        /*Button mapBtn = (Button) rootView.findViewById(R.id.MapButton);
+        mapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Would you like a coffee?", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
             }
-        });
+        });*/
+
+        FAB = (FloatingActionButton) findViewById(R.id.fab);
+
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -74,6 +147,7 @@ public class MainActivity extends AppCompatActivity
                         recyclerView.setVisibility(View.VISIBLE);
                         recyclerView.invalidate();
                         adapter.updateDataSet(movies);
+                        Log.d("update",movies.get(0).getTitle());
                         recyclerView.setAdapter(adapter);
                     }
                 }
@@ -166,5 +240,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onPosterClick(Movie movie) {
         Toast.makeText(this, movie.getTitle() + " poster clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getBaseContext(),PlayerViewDemoActivity.class);
+        intent.putExtra(movieExtra, movie.getid());
+        if (movie.getMovie(movie.getid()).getVideoId() != null && !movie.getMovie(movie.getid()).getVideoId().isEmpty())
+            startActivity(intent);
     }
 }
