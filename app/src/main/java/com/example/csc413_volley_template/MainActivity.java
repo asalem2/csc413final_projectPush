@@ -23,6 +23,8 @@ import android.support.design.widget.FloatingActionButton;
 
 
 //import com.example.csc413_volley_template.MapsActivity.MapsActivity;
+import com.example.csc413_volley_template.MapsActivity.MapsActivity;
+import com.example.csc413_volley_template.Splash.SplashActivity;
 import com.example.csc413_volley_template.adapter.RecyclerViewAdapter;
 import com.example.csc413_volley_template.controller.JsonController;
 import com.example.csc413_volley_template.model.Movie;
@@ -46,8 +48,20 @@ public class MainActivity extends AppCompatActivity
     Location mLastLocation;
     GoogleApiClient mGoogleApiClient;
 
+    private RecyclerViewAdapter adapter;
+    JsonController controller;
+    public static final String movieExtra = "ahmed";
+    public static final String latitudeExtra ="There";
+    public static final String longitutedExtra ="Here";
+
+    TextView textView;
+    RecyclerView recyclerView;
+
 
     public void onConnected(Bundle connectionHint) {
+
+
+
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
         if (mLastLocation != null) {
@@ -58,6 +72,13 @@ public class MainActivity extends AppCompatActivity
                     String lon = String.valueOf(mLastLocation.getLongitude());
                     Toast.makeText(MainActivity.this, lat + " " + lon, Toast.LENGTH_SHORT).show();
 
+
+                    Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                    intent.putExtra(latitudeExtra, lat);
+                    intent.putExtra(longitutedExtra, lon);
+
+
+                    startActivity(intent);
                 }
             });
     //        mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
@@ -89,12 +110,6 @@ public class MainActivity extends AppCompatActivity
     double latitude = gps.getLatitude();
     double longitude= gps.getLongitude();*/
 
-    private RecyclerViewAdapter adapter;
-    JsonController controller;
-    public static final String movieExtra = "ahmed";
-
-    TextView textView;
-    RecyclerView recyclerView;
 
     @Override
 //    protected void onCreateView(Bundle savedInstanceState, LayoutInflater inflater, ViewGroup container) {
@@ -227,7 +242,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onCardClick(Movie movie) {
 
-        Toast.makeText(this, movie.getTitle() + " clicked", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, movie.getTitle() + " ",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getBaseContext(), Fullscreen.class);
         intent.putExtra(movieExtra, movie.getid());
         startActivity(intent);
@@ -239,7 +254,7 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     public void onPosterClick(Movie movie) {
-        Toast.makeText(this, movie.getTitle() + " poster clicked", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, movie.getTitle() + " trailer loading", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getBaseContext(),PlayerViewDemoActivity.class);
         intent.putExtra(movieExtra, movie.getid());
         if (movie.getMovie(movie.getid()).getVideoId() != null && !movie.getMovie(movie.getid()).getVideoId().isEmpty())

@@ -5,7 +5,7 @@
     density="hdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="54423601771467"
+    timestamp="84668473560008"
     token="-2678614230469647376"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -23,14 +23,55 @@
         duration="0" />
 
     <build
-        timestamp="53587046294637"
+        timestamp="82606819465853"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="54423601771467"
+        timestamp="83046347735842"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="83579150641911"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/NoLimitProduction/Desktop/CSC413-Volley-Sample/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        timestamp="84668473560008"
         verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

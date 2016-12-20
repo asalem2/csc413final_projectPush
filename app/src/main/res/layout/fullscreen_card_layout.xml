@@ -7,6 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
+
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
         android:layout_gravity="center"
@@ -39,26 +41,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:text="Movie Title"
-                android:layout_below="@+id/nivPoster"/>
+                android:text="@string/Movie_Title"
+                android:layout_below="@+id/nivPoster"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal|bold" />
 
             <TextView
                 android:id="@+id/tvPopularity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:gravity="end"
-                android:text="Popularity score: "
+                android:text="Popularity Score: "
                 android:layout_below="@+id/tvTitle"
+                android:textStyle="normal|bold" />
+<!--
                 android:backgroundTint="@drawable/cast_ic_mini_controller_stop" />
+-->
 
             <TextView
                 android:id="@+id/tvOverview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:gravity="left"
                 android:text="Overview: "
                 android:layout_below="@+id/tvPopularity"
-                android:layout_marginBottom="45dp" />
+                android:layout_marginBottom="45dp"
+                android:textStyle="normal|bold" />
 
             <!--<Button
                 android:layout_width="@dimen/abc_action_button_min_height_material"

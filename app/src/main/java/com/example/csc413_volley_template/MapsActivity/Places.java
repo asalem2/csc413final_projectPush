@@ -1,4 +1,3 @@
-/*
 package com.example.csc413_volley_template.MapsActivity;
 
 import org.json.JSONArray;
@@ -12,6 +11,7 @@ import java.util.List;
 
 
 public class Places {
+
 
     public List<HashMap<String, String>> parse(JSONObject jsonObject) {
         JSONArray jsonArray = null;
@@ -69,4 +69,3 @@ public class Places {
         return googlePlaceMap;
     }
 }
-*/

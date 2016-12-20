@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
 
 
-    android:background="@drawable/san_francisco_state_logo"
+    android:background="@drawable/san_francisco_state_university_416x416"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context=".Splash.SplashActivity"

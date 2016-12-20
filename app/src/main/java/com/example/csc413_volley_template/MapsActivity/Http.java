@@ -1,4 +1,3 @@
-/*
 package com.example.csc413_volley_template.MapsActivity;
 
 import android.util.Log;
@@ -40,4 +39,3 @@ public class Http {
         return httpData;
     }
 }
-*/

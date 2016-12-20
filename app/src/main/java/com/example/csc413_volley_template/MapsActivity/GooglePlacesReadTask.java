@@ -1,4 +1,3 @@
-/*
 package com.example.csc413_volley_template.MapsActivity;
 
 import android.os.AsyncTask;
@@ -35,4 +34,3 @@ public class GooglePlacesReadTask extends AsyncTask<Object, Integer, String> {
         placesDisplayTask.execute(toPass);
     }
 }
-*/

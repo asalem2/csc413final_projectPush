@@ -65,8 +65,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         cardViewHolder.setPopularity(movie.getPopularity());
 
 
+        if (movie.getTitle().length() > 9)
+            cardViewHolder.setTitle(movie.getTitle().substring(0, 8) + "..");
+
+
         if (movie.getOverview().length() > 21)
-            cardViewHolder.setOverView(movie.getOverview().substring(1, 20) + "..");
+            cardViewHolder.setOverView(movie.getOverview().substring(0, 20) + "..");
 
         cardViewHolder.setPosterUrl(movie.getPosterUrl());
 

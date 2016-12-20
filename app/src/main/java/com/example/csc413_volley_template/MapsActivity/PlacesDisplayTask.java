@@ -1,4 +1,3 @@
-/*
 package com.example.csc413_volley_template.MapsActivity;
 
 import android.os.AsyncTask;
@@ -10,6 +9,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONObject;
+
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,19 +39,22 @@ public class PlacesDisplayTask extends AsyncTask<Object, Integer, List<HashMap<S
 
     @Override
     protected void onPostExecute(List<HashMap<String, String>> list) {
-        googleMap.clear();
-        for (int i = 0; i < list.size(); i++) {
-            MarkerOptions markerOptions = new MarkerOptions();
-            HashMap<String, String> googlePlace = list.get(i);
-            double lat = Double.parseDouble(googlePlace.get("lat"));
-            double lng = Double.parseDouble(googlePlace.get("lng"));
-            String placeName = googlePlace.get("place_name");
-            String vicinity = googlePlace.get("vicinity");
-            LatLng latLng = new LatLng(lat, lng);
-            markerOptions.position(latLng);
-            markerOptions.title(placeName + " : " + vicinity);
-            googleMap.addMarker(markerOptions);
+        if(googleMap != null) {
+
+
+            googleMap.clear();
+            for (int i = 0; i < list.size(); i++) {
+                MarkerOptions markerOptions = new MarkerOptions();
+                HashMap<String, String> googlePlace = list.get(i);
+                double lat = Double.parseDouble(googlePlace.get("lat"));
+                double lng = Double.parseDouble(googlePlace.get("lng"));
+                String placeName = googlePlace.get("place_name");
+                String vicinity = googlePlace.get("vicinity");
+                LatLng latLng = new LatLng(lat, lng);
+                markerOptions.position(latLng);
+                markerOptions.title(placeName + " : " + vicinity);
+                googleMap.addMarker(markerOptions);
+            }
         }
     }
 }
-*/
